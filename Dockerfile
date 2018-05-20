@@ -1,5 +1,5 @@
 FROM mattermost/mattermost-preview
-LABEL maintainer="Keiichi TAJIMA<k1tajima@mi.to>"
+LABEL maintainer="https://qiita.com/k1tajima"
 
 # Set default character set to UTF8 for MySQL.
 COPY ./my.cnf /etc/
