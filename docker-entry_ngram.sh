@@ -12,4 +12,4 @@ EOF
 # Entrypoint for mattermost-preview
 # ref=https://github.com/mattermost/mattermost-docker-preview/blob/master/Dockerfile
 echo "DEBUG: pwd=$PWD"
-exec ./docker-entry.sh "$@"
+exec "$(dirname $0)/docker-entry.sh" "$@"
