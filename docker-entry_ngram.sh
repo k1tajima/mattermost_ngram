@@ -30,5 +30,7 @@ ALTER TABLE Posts ADD FULLTEXT INDEX idx_posts_message_txt (\`Message\`) WITH PA
 EOF
 
 jobs
-fg %+
-# exec "$@"
+kill %+
+jobs
+
+exec ./bin/platform --config=config/config_docker.json
