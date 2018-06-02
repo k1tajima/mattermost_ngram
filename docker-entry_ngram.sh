@@ -15,7 +15,7 @@ done
 
 echo "Starting Mattermost platform"
 cd mattermost
-exec ./bin/platform --config=config/config_docker.json
+./bin/platform --config=config/config_docker.json server
 
 echo "Mattermost is ready."
 
