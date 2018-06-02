@@ -1,6 +1,8 @@
 FROM mattermost/mattermost-preview
 LABEL maintainer="https://qiita.com/k1tajima"
 
+ENV $PATH /mm/mattermost/bin:$PATH
+
 # Set default character set to UTF8 on MySQL.
 COPY my.cnf /etc/
 
