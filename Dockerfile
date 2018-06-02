@@ -14,4 +14,4 @@ ENTRYPOINT ["./docker-entry_ngram.sh"]
 CMD ["bash"]
 
 # Add mount points
-# VOLUME /mm/mattermost/mattermost-data /mm/mattermost/config
+VOLUME /mm/mattermost/mattermost-data /mm/mattermost/config
