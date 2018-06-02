@@ -4,7 +4,7 @@ set -u
 cd "$(dirname $0)"
 echo "DEBUG: pwd=$PWD"
 
-# Run MySQL
+# Run MySQL.
 echo "Starting MySQL"
 /entrypoint.sh mysqld &
 
@@ -13,10 +13,13 @@ until mysqladmin -hlocalhost -P3306 -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" processl
 	sleep 5
 done
 
+# Run Maggermost.
 echo "Starting Mattermost platform"
 cd mattermost
 ./bin/platform --config=config/config_docker.json &
 
+# Wait for Mattermost to get ready.
+wget -q -t 10 http://localhost:8065
 echo "Mattermost is ready."
 
 # Use N-gram parser on MySQL to search a sentence in Japanese.
