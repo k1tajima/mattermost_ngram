@@ -5,10 +5,10 @@ LABEL maintainer="https://qiita.com/k1tajima"
 COPY my.cnf /etc/
 
 # Activate N-gram parser on MySQL to search a sentence in Japanese.
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh \
-    && ln -s /usr/local/bin/docker-entrypoint.sh .
-ENTRYPOINT ["./docker-entrypoint.sh"]
+WORKDIR /mm
+COPY docker-entry_ngram.sh .
+RUN chmod +x docker-entry_ngram.sh
+ENTRYPOINT ["./docker-entry_ngram.sh"]
 
 # Add mount points
 # VOLUME /mm/mattermost/mattermost-data /mm/mattermost/config
