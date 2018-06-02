@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ref=https://github.com/mattermost/mattermost-docker-preview/blob/master/docker-entry.sh
-set -eu
+set -u
 cd "$(dirname $0)"
 echo "DEBUG: pwd=$PWD"
 
