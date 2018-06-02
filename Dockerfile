@@ -11,6 +11,7 @@ WORKDIR /mm
 COPY docker-entry_ngram.sh .
 RUN chmod +x docker-entry_ngram.sh
 ENTRYPOINT ["./docker-entry_ngram.sh"]
+CMD ["/bin/bash", "-c"]
 
 # Add mount points
 # VOLUME /mm/mattermost/mattermost-data /mm/mattermost/config
