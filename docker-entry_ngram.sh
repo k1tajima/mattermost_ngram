@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ref=https://github.com/mattermost/mattermost-docker-preview/blob/master/docker-entry.sh
-set -eu
+set -u
 cd "$(dirname $0)"
 echo "DEBUG: pwd=$PWD"
 
@@ -29,5 +29,6 @@ ALTER TABLE Posts DROP INDEX idx_posts_message_txt;
 ALTER TABLE Posts ADD FULLTEXT INDEX idx_posts_message_txt (\`Message\`) WITH PARSER ngram COMMENT 'ngram reindex';
 EOF
 
-fg
+jobs
+fg %1
 exec "$@"
