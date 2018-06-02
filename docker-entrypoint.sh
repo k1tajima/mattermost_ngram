@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -eu
 
 # Use N-gram parser on MySQL to search a sentence in Japanese.
