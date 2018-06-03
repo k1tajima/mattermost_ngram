@@ -2,7 +2,7 @@ FROM mattermost/mattermost-preview
 LABEL maintainer="https://qiita.com/k1tajima"
 
 ENV $PATH /mm/mattermost/bin:$PATH
-VOLUME /mm/mattermost/mattermost-data /mm/mattermost/config
+VOLUME ["/mm/mattermost/mattermost-data", "/mm/mattermost/config"]
 
 # Install wget.
 RUN apt-get -y install wget
