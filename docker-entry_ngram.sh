@@ -30,5 +30,6 @@ ALTER TABLE Posts ADD FULLTEXT INDEX idx_posts_message_txt (\`Message\`) WITH PA
 EOF
 
 jobs
+echo "DEBUG: path=$PATH"
 
 exec "$@"
