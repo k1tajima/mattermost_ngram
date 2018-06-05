@@ -3,7 +3,6 @@
 set -eu
 cd "$(dirname $0)"
 echo "DEBUG: pwd=$PWD"
-export PATH=$PATH:$PWD/mattermost/bin
 
 # Run MySQL.
 echo "Starting MySQL"
