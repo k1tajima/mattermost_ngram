@@ -5,7 +5,7 @@ if [ -n "$MATTERMOST_HOME" ]; then
 elif [ -d /mm/mattermost ]; then
     work_dir=/mm/mattermost
 else
-    work_dir="$(dirname $0)"
+    work_dir="$(dirname $0)/.."
 fi
 
 pushd "$work_dir"
