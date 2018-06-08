@@ -17,6 +17,6 @@ done
 
 # Run Mattermost.
 echo "Starting Mattermost platform"
-cd mattermost
+cd "$MATTERMOST_HOME"
 cp -n ./config/config_docker.json ./mattermost-data/
 exec ./bin/platform --config=./mattermost-data/config_docker.json
