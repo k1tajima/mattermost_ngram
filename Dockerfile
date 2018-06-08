@@ -2,7 +2,7 @@ FROM mattermost/mattermost-preview:4.10
 LABEL maintainer="https://qiita.com/k1tajima"
 
 ENV MATTERMOST_HOME=/mm/mattermost
-VOLUME ["$MATTERMOST_HOME/mattermost-data", "$MATTERMOST_HOME/config"]
+VOLUME ["$MATTERMOST_HOME/mattermost-data"]
 
 # Install wget.
 RUN apt-get -y install wget
