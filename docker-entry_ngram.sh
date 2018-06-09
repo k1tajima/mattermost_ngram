@@ -16,9 +16,8 @@ done
 ./reindex-ngram.sh &
 
 # Run Mattermost.
-echo "Starting Mattermost platform"
 cd "$MATTERMOST_HOME"
 cp -rn ./config ./mattermost-data/
 MATTERMOST_CONFIG=mattermost-data/config/config_docker.json
-echo "(config=$PWD/$MATTERMOST_CONFIG)"
+echo "Starting Mattermost platform (config=$PWD/$MATTERMOST_CONFIG)"
 exec ./bin/platform --config="$MATTERMOST_CONFIG"
