@@ -2,7 +2,6 @@
 # ref=https://github.com/mattermost/mattermost-docker-preview/blob/master/docker-entry.sh
 set -eu
 cd "$(dirname $0)"
-echo "DEBUG: pwd=$PWD"
 
 # Run MySQL.
 echo "Starting MySQL"
@@ -13,10 +12,13 @@ until mysqladmin -hlocalhost -P3306 -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" processl
 	sleep 5
 done
 
+# Use N-gram parser on MySQL to search a keyword in Japanese.
 ./reindex-ngram.sh &
 
 # Run Mattermost.
 echo "Starting Mattermost platform"
 cd "$MATTERMOST_HOME"
-cp -n ./config/config_docker.json ./mattermost-data/
-exec ./bin/platform --config=./mattermost-data/config_docker.json
+cp -rn ./config ./mattermost-data/
+MATTERMOST_CONFIG=mattermost-data/config/config_docker.json
+echo "(config=$PWD/$MATTERMOST_CONFIG)"
+exec ./bin/platform --config="$MATTERMOST_CONFIG"
