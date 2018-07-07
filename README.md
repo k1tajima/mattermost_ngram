@@ -49,7 +49,7 @@ docker run -d -p 8065:8065 --restart always --name mattermost k1tajima/mattermos
 この改良により、下記コマンドのように `/mm/mattermost/mattermost-data` ディレクトリをマウントするだけで、コンフィグファイルも外部ボリュームに保存され、コンテナの再構築時にも元のコンフィグを再利用できる。
 
 ```
-docker run -d -p 8065:8065 --restart always -v c:/docker-share/mattermost/data:/mm/mattermost/mattermost-data -v c:/docker-share/mattermost/mysql:/var/lib/mysql -name mattermost k1tajima/mattermost_ngram
+docker run -d -p 8065:8065 --restart always -v c:/docker-share/mattermost/data:/mm/mattermost/mattermost-data -v c:/docker-share/mattermost/mysql:/var/lib/mysql --name mattermost k1tajima/mattermost_ngram
 ```
 
 ## References
