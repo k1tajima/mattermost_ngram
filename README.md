@@ -20,7 +20,7 @@ Docker ユーザーなら、`docker run` コマンド一発で実行環境を構
 * Mattermost の起動を wget でポーリング待ちしてから、My SQL のインデックスを N-gram パーサーで再構築
 * Mattermost のコンフィグファイルをボリュームの対象ディレクトリにコピーして使用
 * mattermost-data ボリュームの対象ディレクトリのパスを修正
-* Mattermost 標準の CLI コマンド(bin/platform) 実行時の panic エラー回避のために、シェルでラッピングして実行前にカレントディレクトリを移動
+* Mattermost 標準の CLI コマンド(bin/mattermost) を /usr/local/bin にシンボリックリンク
 
 ## Usage
 
@@ -51,5 +51,5 @@ docker run -d -p 8065:8065 --restart always -v c:/docker-share/mattermost/data:/
 
 * 本家: [mattermost/mattermost-docker-preview の GitHub](https://github.com/mattermost/mattermost-docker-preview)
 
-Best wishes,  
-Friends
+All the best,
+k1tajima
