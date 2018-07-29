@@ -1,4 +1,4 @@
-FROM mattermost/mattermost-preview:4.10
+FROM mattermost/mattermost-preview
 LABEL maintainer="https://qiita.com/k1tajima"
 
 ENV MATTERMOST_HOME=/mm/mattermost
@@ -17,7 +17,6 @@ COPY reindex-ngram.sh .
 RUN chmod +x docker-entry_ngram.sh reindex-ngram.sh
 ENTRYPOINT ["./docker-entry_ngram.sh"]
 
-# Do workarround for Mattermost platform in panic
-COPY platform.sh $MATTERMOST_HOME/bin
-RUN ln -s $MATTERMOST_HOME/bin/platform.sh /usr/local/bin/platform \
-    && chmod +x $MATTERMOST_HOME/bin/platform.sh /usr/local/bin/platform
+# Make symbolic link as /usr/local/bin/mattermost.
+RUN ln -s $MATTERMOST_HOME/bin/mattermost /usr/local/bin/mattermost \
+    && chmod +x /usr/local/bin/mattermost
