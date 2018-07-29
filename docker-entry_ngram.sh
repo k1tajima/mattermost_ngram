@@ -18,6 +18,6 @@ done
 # Run Mattermost.
 cd "$MATTERMOST_HOME"
 cp -rn ./config ./mattermost-data/
-MATTERMOST_CONFIG=mattermost-data/config/config_docker.json
-echo "Starting Mattermost platform (config=$PWD/$MATTERMOST_CONFIG)"
-exec ./bin/platform --config="$MATTERMOST_CONFIG"
+MATTERMOST_CONFIG=$PWD/mattermost-data/config/config_docker.json
+echo "Starting Mattermost (config=$MATTERMOST_CONFIG)"
+exec ./bin/mattermost --config="$MATTERMOST_CONFIG"
