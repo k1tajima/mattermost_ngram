@@ -22,13 +22,6 @@ Docker ユーザーなら、`docker run` コマンド一発で実行環境を構
 * mattermost-data ボリュームの対象ディレクトリのパスを修正
 * Mattermost 標準の CLI コマンド(bin/platform) 実行時の panic エラー回避のために、シェルでラッピングして実行前にカレントディレクトリを移動
 
-## Limitation
-
-ベースとする Mattermost のバージョンは 4.10 としてある(latestではない)。2018年6月に 5.0.0 がリリースされたが、Mattermost の起動コマンドが変更されたようで、まだ未対応のため。
-
-* [Mattermost-preview のリリース情報](https://github.com/mattermost/mattermost-docker-preview/releases)
-* [CLIによる起動方法](https://docs.mattermost.com/administration/command-line-tools.html#using-the-cli)
-
 ## Usage
 
 当然ながら、使い方の基本は [mattermost-preview](https://docs.mattermost.com/install/docker-local-machine.html) と同じ。
