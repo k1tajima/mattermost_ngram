@@ -1,5 +1,10 @@
 # Mattermost docker image using N-gram parser
 
+## History
+
+> 2018-07-29  
+> mattermost-preview 5.x に対応
+
 ## What's this ?
 
 Mattermost を日本語で利用するときに必ず課題となるのが日本語文書の部分検索。  
