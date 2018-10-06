@@ -2,6 +2,7 @@ FROM mattermost/mattermost-preview:5.3.1
 LABEL maintainer="https://qiita.com/k1tajima"
 
 ENV MATTERMOST_HOME=/mm/mattermost
+ENV PATH="${PATH}:$MATTERMOST_HOME/bin"
 VOLUME ["$MATTERMOST_HOME/config","$MATTERMOST_HOME/mattermost-data"]
 
 # Install wget.
@@ -21,8 +22,8 @@ RUN chmod +x docker-entry_ngram.sh reindex-ngram.sh
 ENTRYPOINT ["/mm/docker-entry_ngram.sh"]
 
 # Make symbolic link as /usr/local/bin/mattermost.
-RUN ln -s $MATTERMOST_HOME/bin/mattermost /usr/local/bin/mattermost \
-    && chmod +x /usr/local/bin/mattermost
+# RUN ln -s $MATTERMOST_HOME/bin/mattermost /usr/local/bin/mattermost \
+#     && chmod +x /usr/local/bin/mattermost
 
 # Set Current Directory
 WORKDIR $MATTERMOST_HOME
