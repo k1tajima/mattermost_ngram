@@ -3,7 +3,7 @@ LABEL maintainer="https://qiita.com/k1tajima"
 
 ENV MATTERMOST_HOME=/mm/mattermost
 ENV PATH="${PATH}:$MATTERMOST_HOME/bin"
-VOLUME ["$MATTERMOST_HOME/mattermost-data"]
+VOLUME ["$MATTERMOST_HOME/config","$MATTERMOST_HOME/mattermost-data"]
 
 # Install wget.
 RUN apt-get -y install wget
