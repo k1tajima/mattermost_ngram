@@ -2,8 +2,13 @@
 
 ## History
 
+> 2018-10-06
+> * config ディレクトリを元の /mm/mattermost/config に戻し、ボリュームとして明示。
+> * 空の config ディレクトリをボリュームマウントした場合にも既定の config ファイルがコピーされて動作するように変更。
+> * パスに /mm/mattermost/bin を追加。
+>
 > 2018-07-29  
-> mattermost-preview 5.x に対応
+> * mattermost-preview 5.x に対応
 
 ## What's this ?
 
@@ -23,9 +28,9 @@ Docker ユーザーなら、`docker run` コマンド一発で実行環境を構
 
 * My SQL の文字コードを UTF-8 に変更
 * Mattermost の起動を wget でポーリング待ちしてから、My SQL のインデックスを N-gram パーサーで再構築
-* Mattermost のコンフィグファイルをボリュームの対象ディレクトリにコピーして使用
+* mattermost/config ディレクトリをボリュームとして登録し、空の config ディレクトリをマウントした場合は既定のコンフィグファイルをコピーして動作するように変更
 * mattermost-data ボリュームの対象ディレクトリのパスを修正
-* Mattermost 標準の CLI コマンド(bin/mattermost) を /usr/local/bin にシンボリックリンク
+* Mattermost/bin ディレクトリをパスに追加
 
 ## Usage
 
@@ -47,7 +52,7 @@ docker run -d -p 8065:8065 --restart always --name mattermost k1tajima/mattermos
 この改良により、下記コマンドのように `/mm/mattermost/mattermost-data` ディレクトリをマウントするだけで、コンフィグファイルも外部ボリュームに保存され、コンテナの再構築時にも元のコンフィグを再利用できる。
 
 ```
-docker run -d -p 8065:8065 --restart always -v c:/docker-share/mattermost/data:/mm/mattermost/mattermost-data -v c:/docker-share/mattermost/mysql:/var/lib/mysql --name mattermost k1tajima/mattermost_ngram
+docker run -d -p 8065:8065 --restart always -v c:/docker-share/mattermost/config:/mm/mattermost/config -v c:/docker-share/mattermost/mattermost-data:/mm/mattermost/mattermost-data -v c:/docker-share/mattermost/mysql:/var/lib/mysql --name mattermost k1tajima/mattermost_ngram
 ```
 
 ## References
