@@ -12,7 +12,8 @@ RUN apt-get -y install wget
 COPY my.cnf /etc/
 
 # Store initial config
-RUN cp -rp $MATTERMOST_HOME/config/ $MATTERMOST_HOME/config_init/
+RUN mkdir $MATTERMOST_HOME/config_init && \
+    cp -rp $MATTERMOST_HOME/config/* $MATTERMOST_HOME/config_init/
 
 # Activate N-gram parser on MySQL to search a sentence in Japanese.
 WORKDIR /mm
