@@ -54,7 +54,7 @@ Docker ユーザーなら、`docker run` コマンド一発で実行環境を構
 
 > [docker-entry_ngram.sh#L23](https://github.com/tajimak/mattermost_ngram/blob/master/docker-entry_ngram.sh#L23) 
 > ```sh
-> cp -rpn ./config_init/ ./config/
+> cp -nrp ./config_init/* ./config/
 > ```
 
 オリジナルの mattermost-preview で単純に `mattermost/config` ディレクトリに空のホストディレクトリをマウントすると、必要なコンフィグファイルが存在しないために失敗してしまう。  
