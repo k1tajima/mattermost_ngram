@@ -58,7 +58,7 @@ Docker ユーザーなら、`docker run` コマンド一発で実行環境を構
 > ```
 
 オリジナルの mattermost-preview で単純に `mattermost/config` ディレクトリに空のホストディレクトリをマウントすると、必要なコンフィグファイルが存在しないために失敗してしまう。  
-なので、`copy -rpn` コマンドでファイルが存在しない場合には、オリジナルのコンフィグファイル[^1]をテンプレートとしてコピーしている。
+なので、`copy -nrp` コマンドでファイルが存在しない場合には、オリジナルのコンフィグファイル[^1]をテンプレートとしてコピーしている。
 
 [^1]: [DockerFile](https://github.com/tajimak/mattermost_ngram/blob/master/Dockerfile#L15) で `./config_init/` ディレクトリにコピー済み。
 
