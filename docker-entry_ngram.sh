@@ -20,7 +20,7 @@ update-ca-certificates --fresh >/dev/null
 
 # Run Mattermost.
 cd "$MATTERMOST_HOME"
-cp -rpn ./config_init/ ./config/
+cp -rpn ./config_init/* ./config/
 MATTERMOST_CONFIG=$PWD/config/config_docker.json
 echo "Starting Mattermost (config=$MATTERMOST_CONFIG)"
 exec ./bin/mattermost --config="$MATTERMOST_CONFIG"
