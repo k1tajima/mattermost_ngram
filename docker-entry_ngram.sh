@@ -12,6 +12,9 @@ until mysqladmin -hlocalhost -P3306 -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" processl
 	sleep 5
 done
 
+echo "Updating CA certificates"
+update-ca-certificates --fresh >/dev/null
+
 # Use N-gram parser on MySQL to search a keyword in Japanese.
 /mm/reindex-ngram.sh &
 

@@ -1,4 +1,4 @@
-FROM mattermost/mattermost-preview:5.3.1
+FROM mattermost/mattermost-preview:latest
 LABEL maintainer="https://qiita.com/k1tajima"
 
 ENV MATTERMOST_HOME=/mm/mattermost
