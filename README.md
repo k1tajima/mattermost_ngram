@@ -54,13 +54,13 @@ Docker ユーザーなら、`docker run` コマンド一発で実行環境を構
 
 > [docker-entry_ngram.sh#L23](https://github.com/tajimak/mattermost_ngram/blob/master/docker-entry_ngram.sh#L23) 
 > ```sh
-> cp -rpn ./config_init/ ./config/
+> cp -nrp ./config_init/* ./config/
 > ```
 
 オリジナルの mattermost-preview で単純に `mattermost/config` ディレクトリに空のホストディレクトリをマウントすると、必要なコンフィグファイルが存在しないために失敗してしまう。  
 なので、`copy -nrp` コマンドでファイルが存在しない場合には、オリジナルのコンフィグファイル[^1]をテンプレートとしてコピーしている。
 
-[^1]: [DockerFile](https://github.com/tajimak/mattermost_ngram/blob/master/Dockerfile#L15) で `./config_init/` ディレクトリにコピー済み。
+[^1]: [DockerFile](https://github.com/tajimak/mattermost_ngram/blob/master/Dockerfile#L14) で `./config_init/` ディレクトリにコピー済み。
 
 ```sh
 docker run -d -p 8065:8065 --restart always -v c:/docker-share/mattermost/config:/mm/mattermost/config -v c:/docker-share/mattermost/mattermost-data:/mm/mattermost/mattermost-data -v c:/docker-share/mattermost/mysql:/var/lib/mysql --name mattermost k1tajima/mattermost_ngram

@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -eu
 
-echo "Waiting for Mattermost to get ready."
-wget -q -t 10 http://localhost:8065
-echo "Mattermost is ready."
-
 # Use N-gram parser on MySQL to search a keyword in Japanese.
 echo "Activate N-gram parser on MySQL."
 mysql -u "$MYSQL_USER" -p"$MYSQL_PASSWORD" $MYSQL_DATABASE <<EOF
