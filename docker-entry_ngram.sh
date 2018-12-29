@@ -16,7 +16,7 @@ echo "Updating CA certificates"
 update-ca-certificates --fresh >/dev/null
 
 # Use N-gram parser on MySQL to search a keyword in Japanese.
-/mm/reindex-ngram.sh &
+wait-for-it.sh -t 30 -q localhost:8065 -- /mm/reindex-ngram.sh &
 
 # Run Mattermost.
 cd "$MATTERMOST_HOME"

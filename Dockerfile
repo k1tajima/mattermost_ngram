@@ -1,12 +1,14 @@
-FROM mattermost/mattermost-preview:latest
+FROM mattermost/mattermost-preview:${TAG:-latest}
 LABEL maintainer="https://qiita.com/k1tajima"
 
 ENV MATTERMOST_HOME=/mm/mattermost
 ENV PATH="${PATH}:$MATTERMOST_HOME/bin"
 VOLUME ["$MATTERMOST_HOME/config","$MATTERMOST_HOME/mattermost-data"]
 
-# Install wget.
-RUN apt-get -y install wget
+# Install wait-for-it.
+# See https://docs.docker.com/compose/startup-order/
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /usr/local/bin/wait-for-it.sh
+RUN chmod +x /usr/local/bin/wait-for-it.sh
 
 # Set default character set to UTF8 on MySQL.
 COPY my.cnf /etc/
