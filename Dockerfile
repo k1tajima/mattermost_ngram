@@ -3,7 +3,9 @@ FROM mattermost/mattermost-preview:${TAG}
 LABEL maintainer="https://qiita.com/k1tajima"
 
 ARG TAG
-RUN echo "mattermost/mattermost-preview:${TAG}" > image_tag && cat image_tag
+RUN echo "k1tajima/mattermost_ngram:${TAG}" > image_tag \
+    && echo "FROM mattermost/mattermost-preview:${TAG}" >> image_tag \
+    && cat image_tag
 
 ENV MATTERMOST_HOME=/mm/mattermost
 VOLUME ["$MATTERMOST_HOME/config","$MATTERMOST_HOME/mattermost-data"]
