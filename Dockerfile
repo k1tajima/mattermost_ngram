@@ -1,4 +1,4 @@
-ARG TAG=5.7.2
+ARG TAG=latest
 FROM mattermost/mattermost-preview:${TAG}
 LABEL maintainer="https://qiita.com/k1tajima"
 
